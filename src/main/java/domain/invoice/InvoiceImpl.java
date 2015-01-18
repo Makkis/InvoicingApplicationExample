@@ -19,4 +19,9 @@ public class InvoiceImpl implements Invoice {
     public void changeDueDate(LocalDate newDueDate) {
         this.dueDate = newDueDate;
     }
+
+    @Override
+    public void serialize(InvoiceSerializer serializer) {
+        serializer.serialize(id, number, dueDate);
+    }
 }
