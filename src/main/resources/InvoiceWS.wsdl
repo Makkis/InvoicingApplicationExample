@@ -1,0 +1,50 @@
+<?xml version="1.0" ?><wsdl:definitions xmlns:xsd="http://www.w3.org/2001/XMLSchema" xmlns:wsdl="http://schemas.xmlsoap.org/wsdl/" xmlns:tns="http://service/" xmlns:soap="http://schemas.xmlsoap.org/wsdl/soap/" xmlns:ns1="http://schemas.xmlsoap.org/soap/http" name="InvoiceWS" targetNamespace="http://service/">
+  <wsdl:types>
+<xsd:schema xmlns:xsd="http://www.w3.org/2001/XMLSchema" xmlns:tns="http://service/" attributeFormDefault="unqualified" elementFormDefault="unqualified" targetNamespace="http://service/">
+  <xsd:element name="changeInvoiceDuedate" type="tns:changeInvoiceDuedate"></xsd:element>
+  <xsd:complexType name="changeInvoiceDuedate">
+    <xsd:sequence>
+      <xsd:element minOccurs="0" name="arg0" type="xsd:string"></xsd:element>
+      <xsd:element minOccurs="0" name="arg1"></xsd:element>
+    </xsd:sequence>
+  </xsd:complexType>
+  <xsd:element name="changeInvoiceDuedateResponse" type="tns:changeInvoiceDuedateResponse"></xsd:element>
+  <xsd:complexType name="changeInvoiceDuedateResponse">
+    <xsd:sequence></xsd:sequence>
+  </xsd:complexType>
+</xsd:schema>
+  </wsdl:types>
+  <wsdl:message name="changeInvoiceDuedate">
+    <wsdl:part element="tns:changeInvoiceDuedate" name="parameters">
+    </wsdl:part>
+  </wsdl:message>
+  <wsdl:message name="changeInvoiceDuedateResponse">
+    <wsdl:part element="tns:changeInvoiceDuedateResponse" name="parameters">
+    </wsdl:part>
+  </wsdl:message>
+  <wsdl:portType name="InvoiceService">
+    <wsdl:operation name="changeInvoiceDuedate">
+      <wsdl:input message="tns:changeInvoiceDuedate" name="changeInvoiceDuedate">
+    </wsdl:input>
+      <wsdl:output message="tns:changeInvoiceDuedateResponse" name="changeInvoiceDuedateResponse">
+    </wsdl:output>
+    </wsdl:operation>
+  </wsdl:portType>
+  <wsdl:binding name="InvoiceWSSoapBinding" type="tns:InvoiceService">
+    <soap:binding style="document" transport="http://schemas.xmlsoap.org/soap/http"></soap:binding>
+    <wsdl:operation name="changeInvoiceDuedate">
+      <soap:operation soapAction="" style="document"></soap:operation>
+      <wsdl:input name="changeInvoiceDuedate">
+        <soap:body use="literal"></soap:body>
+      </wsdl:input>
+      <wsdl:output name="changeInvoiceDuedateResponse">
+        <soap:body use="literal"></soap:body>
+      </wsdl:output>
+    </wsdl:operation>
+  </wsdl:binding>
+  <wsdl:service name="InvoiceWS">
+    <wsdl:port binding="tns:InvoiceWSSoapBinding" name="InvoiceServicePort">
+      <soap:address location="http://localhost:8080/InvoicingApplication/InvoiceWS"></soap:address>
+    </wsdl:port>
+  </wsdl:service>
+</wsdl:definitions>
